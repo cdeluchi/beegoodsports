@@ -13,14 +13,14 @@ const Collection = () => {
     const getItems = async () => {
       setLoading(true);
       const response = await fetch(
-        "https://5m6exoj3o7.execute-api.eu-west-1.amazonaws.com/prod/items?collection=winter2020&tag=sports"
+        `https://5m6exoj3o7.execute-api.eu-west-1.amazonaws.com/prod/items?`
       );
-      
-        setData(await response.clone().json());
-        setFilter(await response.json());
-        setLoading(false);
-        // console.log("data in Items", data); 
-      
+
+      setData(await response.clone().json());
+      setFilter(await response.json());
+      setLoading(false);
+      // console.log("data in Items", data);
+
       // return () => {
       //   componentMounted = false;
       // };
@@ -29,59 +29,92 @@ const Collection = () => {
   }, []);
 
   const Loading = () => {
-    return(
-    <>
+    return (
+      <>
         <div className="col-md-3">
-        <Skeleton height={350} />
+          <Skeleton height={350} />
         </div>
         <div className="col-md-3">
-        <Skeleton height={350} />
+          <Skeleton height={350} />
         </div>
         <div className="col-md-3">
-        <Skeleton height={350} />
+          <Skeleton height={350} />
         </div>
         <div className="col-md-3">
-        <Skeleton height={350} />
+          <Skeleton height={350} />
         </div>
-    </>
+      </>
     );
   };
 
   const filterProduct = (cat) => {
-      const updatedList = data.filter((x) => x.categoryId === cat);
-      setFilter(updatedList);
-  }
+    const updatedList = data.filter((x) => x.categoryId === cat);
+    setFilter(updatedList);
+  };
   const ShowItems = () => {
     console.log("data", data);
     return (
       <>
         <div className="buttons d-flex justify-content-center mb-5 pb-5">
-          <button className="btn btn-outline-dark me-2" onClick={() => setFilter(data)}>All</button>
-          <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
-          <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("women's clothing")}>
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => setFilter(data)}
+          >
+            All
+          </button>
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => filterProduct("men")}
+          >
+            Men's Clothing
+          </button>
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => filterProduct("ladies")}
+          >
             Women's Clothing
           </button>
-          <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("hoodies")}>Hoodies</button>
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => filterProduct("hoodies")}
+          >
+            Hoodies
+          </button>
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => filterProduct("shoes")}
+          >
+            Shoes
+          </button>
         </div>
 
         {filter.map((product) => {
           return (
-            
-              <div className="col-md-3 mb-4" key={product.itemId}>
-                <div className="card h-100 text-center p-4">
-                  <img src={product.picture} className="card-img-top" alt={product.displayName} />
-                  <div className="card-body">
-                    <h5 className="card-title mb-0">{product.displayName.substring(0,12)}</h5>
-                    <p className="card-text lead fw-bold">
-                      {product.currentPrice}€
-                    </p>
-                    <NavLink to={`/collection/${product.itemId}`} className="btn btn-outline-dark">
-                      Buy Now
-                    </NavLink>
-                  </div>
+            <div className="col-md-3 mb-4" key={product.itemId}>
+              <div className="card h-100 text-center p-4">
+                <NavLink to={`/collection/${product.itemId}`}>
+                  <img
+                    src={product.picture}
+                    className="card-img-top"
+                    alt={product.displayName}
+                  />
+                </NavLink>
+                <div className="card-body">
+                  <h5 className="card-title mb-0">
+                    {product.displayName.substring(0, 12)}
+                  </h5>
+                  <p className="card-text lead fw-bold">
+                    {product.currentPrice}€
+                  </p>
+                  <NavLink
+                    to={`/collection/${product.itemId}`}
+                    className="btn btn-outline-dark"
+                  >
+                    Buy Now
+                  </NavLink>
                 </div>
               </div>
-            
+            </div>
           );
         })}
       </>

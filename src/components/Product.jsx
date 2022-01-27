@@ -1,52 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import Skeleton from "react-loading-skeleton";
+import Loading from "./Loading";
 
 const Product = () => {
-  const { itemId } = useParams;
+  const { itemId } = useParams();
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const getProduct = async () => {
-      setLoading(true);
-      const response = await fetch(
-        `https://5m6exoj3o7.execute-api.eu-west-1.amazonaws.com/prod/items?collection=winter2020&tag=sports/${itemId}`
-      );
-      setProduct(await response.json());
-      setLoading(false);
-    };
-    getProduct();
-  }, []);
+      const getProduct = async () => {
+          setLoading(true);
+          const response = await fetch(
+              `https://5m6exoj3o7.execute-api.eu-west-1.amazonaws.com/prod/items/${itemId}`
+              );
+              setProduct(await response.json());
+              setLoading(false);
+      };
+      getProduct();
+    }, [itemId]);
+   
+    
+      const ShowProduct = () => {
+        console.log("data in itemId", product);
 
-  const Loading = () => {
     return (
       <>
         <div className="col-md-6">
-          <Skeleton height={400} />
-        </div>
-        <div className="col-md-6" style={{ lineHeight: 2 }}>
-          <Skeleton height={50} width={300} />
-          <Skeleton height={75} />
-          <Skeleton height={25} width={150} />
-          <Skeleton height={50} />
-          <Skeleton height={150} />
-          <Skeleton height={50} width={100} />
-          <Skeleton height={50} width={100} style={{ marginLeft: 6 }} />
-        </div>
-      </>
-    );
-  };
-  const ShowProduct = () => {
-    console.log("data in ShowProduct", product);
-    return (
-      <>
-        <div className="col-md-6">
-          <h1>Products</h1>
+          
           <img
             src={product.picture}
-            alt={product.displayName}
-            height="400px"
+            alt={product}
+            height="500px"
             width="400px"
           />
         </div>
