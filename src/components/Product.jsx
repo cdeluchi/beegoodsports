@@ -38,10 +38,11 @@ const Product = () => {
     );
   };
   const ShowProduct = () => {
-    console.log("data in Products", product);
+    console.log("data in ShowProduct", product);
     return (
       <>
         <div className="col-md-6">
+          <h1>Products</h1>
           <img
             src={product.picture}
             alt={product.displayName}

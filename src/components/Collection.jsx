@@ -19,7 +19,7 @@ const Collection = () => {
         setData(await response.clone().json());
         setFilter(await response.json());
         setLoading(false);
-        console.log("data in Items", data);
+        // console.log("data in Items", data); 
       
       // return () => {
       //   componentMounted = false;
@@ -75,7 +75,7 @@ const Collection = () => {
                     <p className="card-text lead fw-bold">
                       {product.currentPrice}€
                     </p>
-                    <NavLink to={`/item/${product.itemId}`} className="btn btn-outline-dark">
+                    <NavLink to={`/collection/${product.itemId}`} className="btn btn-outline-dark">
                       Buy Now
                     </NavLink>
                   </div>
