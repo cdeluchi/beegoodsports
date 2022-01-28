@@ -17,8 +17,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <Collection/>
-            <Tags/>
+            <Collection />
+            <Tags />
         </div>;
         
 };

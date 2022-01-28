@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 import { NavLink } from "react-router-dom";
 
-const Collection = () => {
+
+const Tags = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState([]);
   const [loading, setLoading] = useState([]);
 
-  // let componentMounted = true;
+  
 
   useEffect(() => {
     const getItems = async () => {
@@ -19,14 +20,11 @@ const Collection = () => {
       setData(await response.clone().json());
       setFilter(await response.json());
       setLoading(false);
-      // console.log("data in Items", data);
-
-      // return () => {
-      //   componentMounted = false;
-      // };
     };
     getItems();
   }, []);
+
+  
 
   const Loading = () => {
     return (
@@ -50,53 +48,53 @@ const Collection = () => {
   const filterProduct = (cat) => {
     const updatedList = data.filter((x) => x.categoryId === cat);
     setFilter(updatedList);
+    console.log("filterProduct", cat);
   };
   const ShowItems = () => {
-    console.log("data", data);
     return (
       <>
         <div className="buttons d-flex justify-content-center mb-5 pb-5">
-          <button
+          {/* <button
             className="btn btn-outline-dark me-2"
             onClick={() => setFilter(data)}
           >
-            white
-          </button>
+            All
+          </button> */}
           <button
             className="btn btn-outline-dark me-2"
             onClick={() => filterProduct("men")}
           >
-            jeans
+            Mens
           </button>
           <button
             className="btn btn-outline-dark me-2"
             onClick={() => filterProduct("ladies")}
           >
-            football
+            Ladies
           </button>
           <button
             className="btn btn-outline-dark me-2"
             onClick={() => filterProduct("hoodies")}
           >
-            formal
+            Hoodies
           </button>
           <button
             className="btn btn-outline-dark me-2"
-            onClick={() => filterProduct("shoes")}
+            onClick={() => filterProduct("sports")}
           >
-            blue
+            Sport
           </button>
           <button
             className="btn btn-outline-dark me-2"
-            onClick={() => filterProduct("shoes")}
+            onClick={() => filterProduct("football")}
           >
-            sports
+            Football
           </button>
           <button
             className="btn btn-outline-dark me-2"
-            onClick={() => filterProduct("shoes")}
+            onClick={() => filterProduct("casual")}
           >
-            casual
+            Casual wear
           </button>
         </div>
 
@@ -138,7 +136,7 @@ const Collection = () => {
       <div className="container my-5 py-5">
         <div className="row">
           <div className="col-12">
-            <h1 className="display-6 fw-bolder text-center">Choose your Items by Tag</h1>
+            <h1 className="display-6 fw-bolder text-center">Choose your item by Tag</h1>
             <hr />
           </div>
         </div>
@@ -150,4 +148,4 @@ const Collection = () => {
   );
 };
 
-export default Collection;
+export default Tags;
