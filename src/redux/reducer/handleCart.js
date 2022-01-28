@@ -1,23 +1,18 @@
-const addCart = [];
+// const addCart = [];
 
-const handleCart = (state = addCart, action) => {
-  switch (action.type) {
-    case "ADDITEM": 
-    return[
-      ...state,
-      action.payload
-    ]
-      break;
+// const handleCart = (state = addCart, action) => {
+//   switch (action.type) {
+//     case "ADDITEM":
+//       return [...state, action.payload];
 
-      case "DELITEM": 
-      return state = state.filter((x) => {
-        return x.itemId !== action.payload.itemId
-      })
-        break;
-
-        default: return state;
-        break;
-  }
-
-};
-export default handleCart;
+//     case "DELITEM":
+//       return (state = state.filter((x) => {
+//         return x.itemId !== action.payload.itemId;
+//       }));
+   
+//     default:
+//       return state;
+   
+//   }
+// };
+// export default handleCart;

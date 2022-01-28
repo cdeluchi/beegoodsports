@@ -1,17 +1,17 @@
-// add Item to cart
+// // add Item to cart
 
-export const addItem = (product) => {
-    return{
-        type: "ADDITEM",
-        payload: product
-    }
-}
+// export const addItem = (product) => {
+//     return{
+//         type: "ADDITEM",
+//         payload: product
+//     }
+// }
 
-// delete Item from cart
+// // delete Item from cart
 
-export const delItem = (product) => {
-    return{
-        type: "DELITEM",
-        payload: product
-    }
-}
+// export const delItem = (product) => {
+//     return{
+//         type: "DELITEM",
+//         payload: product
+//     }
+// }

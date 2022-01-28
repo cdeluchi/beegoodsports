@@ -1,5 +1,6 @@
 import React from 'react';
 import Collection from './Collection';
+import Tags from './Tags'
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
                 </div>
             </div>
             <Collection/>
+            <Tags/>
         </div>;
         
 };
