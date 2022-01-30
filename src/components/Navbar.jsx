@@ -33,13 +33,13 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="/cart">
                 Cart
               </Link>
             </li>
           </ul>
           <div className="buttons">
-            <Link to="/" className="btn btn-outline-dark">
+            <Link to="/cart" className="btn btn-outline-dark">
               <i className="fa fa-shopping-cart me-1">Cart (0)</i>
             </Link>
           </div>

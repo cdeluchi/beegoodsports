@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { NavLink } from "react-router-dom";
 import Loading from "./Loading";
 // import { useDispatch } from "react-redux";
 // import { addItem, delItem } from '../redux/action/index';
@@ -55,9 +56,11 @@ const Product = () => {
           <h1 className="display-5">{product.displayName}</h1>
           <h3 className="display-6 fw-bold my-4">{product.currentPrice}€</h3>
           <p className="lead">{product.description}</p>
+          <NavLink to={`/cart/${product.description}`}>
           <button className="btn btn-outline-dark px-4 py-2" >
             add to cart
           </button>
+          </NavLink>
         </div>
       </>
     );
