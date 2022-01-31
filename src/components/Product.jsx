@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+import CartBtn from "./CartBtn";
 import Loading from "./Loading";
 
 // import { useDispatch } from "react-redux";
@@ -10,19 +11,9 @@ const Product = () => {
   const { itemId } = useParams();
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const [cartBtn, setCartBtn] = useState("Add to cart");
+  const [cartBtn, setCartBtn] = useState("Add to cart");
 
-  // const dispatch = useDispatch();
-
-  // const handleCart = (product) => {
-  //   if(cartBtn === "Add to cart"){
-  //     dispatch(addItem(product))
-  //     setCartBtn("Remove from Cart")
-  //   }else{
-  //     dispatch(delItem(product))
-  //     setCartBtn("Add to cart")
-  //   }
-  // }
+  
 
 
   useEffect(() => {
@@ -38,9 +29,18 @@ const Product = () => {
     }, [itemId]);
    
     
+    const handleCart = (product) => {
+      if (cartBtn === "Add to Cart"){
+        setCartBtn("Remove from Cart")
+      }else{
+        setCartBtn("Add to Cart")
+      }
+    }
       const ShowProduct = () => {
         console.log("data in itemId", product);
 
+
+        
     return (
       <>
         <div className="col-md-6">
@@ -57,11 +57,11 @@ const Product = () => {
           <h1 className="display-5">{product.displayName}</h1>
           <h3 className="display-6 fw-bold my-4">{product.currentPrice}€</h3>
           <p className="lead">{product.description}</p>
-          <NavLink to={`/cart/${product.description}`}>
-          <button className="btn btn-outline-dark px-4 py-2" >
-            Add to cart
+          
+          <button onClick={() => handleCart(product)} className="btn btn-outline-dark px-4 py-2" >
+            {cartBtn}
           </button>
-          </NavLink>
+          
         </div>
       </>
     );
