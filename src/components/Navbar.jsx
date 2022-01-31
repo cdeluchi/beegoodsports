@@ -32,11 +32,11 @@ const Navbar = () => {
                 Collection
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className="nav-link" to="/cart">
                 Cart
               </Link>
-            </li>
+            </li> */}
           </ul>
           <div className="buttons">
             <Link to="/cart" className="btn btn-outline-dark">

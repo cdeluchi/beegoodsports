@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
 import Loading from "./Loading";
+
 // import { useDispatch } from "react-redux";
 // import { addItem, delItem } from '../redux/action/index';
 
@@ -58,7 +59,7 @@ const Product = () => {
           <p className="lead">{product.description}</p>
           <NavLink to={`/cart/${product.description}`}>
           <button className="btn btn-outline-dark px-4 py-2" >
-            add to cart
+            Add to cart
           </button>
           </NavLink>
         </div>

@@ -5,32 +5,32 @@ import { Link } from 'react-router-dom';
 
 function Cart({product}) {
     // const classes = useStyle();
-    const isEmpty = product;
+    // const isEmpty = product;
     
-    const EmptyCart = () => (
-        <Typography variant='subtitle1'>Your cart is empty!
-        <Link className={product.link} to="/cart">start adding some</Link>
-        </Typography>
-    );
+    // const EmptyCart = () => (
+    //     <Typography variant='subtitle1'>Your cart is empty!
+    //     <Link className={product.link} to="/cart">start adding some</Link>
+    //     </Typography>
+    // );
 
     // using the () not {} to have the instantly result don't need to wait
-    const FilledCart = () => (
-        <Grid container spacing={3}>
-            {/* {product.itemId.map((item) => (
-                <Grid item xs={12} sm={4} key={item.itemId}>
-                    <div>item Name</div>
-                </Grid>
-            ))} */}
-        </Grid>
+    // const FilledCart = () => (
+    //     <Grid container spacing={3}>
+    //         {product.itemId.map((item) => (
+    //             <Grid item xs={12} sm={4} key={item.itemId}>
+    //                 <div>item Name</div>
+    //             </Grid>
+    //         ))}
+    //     </Grid>
         
-    );
+    // );
     return (
-        // <div>Cart product</div>
-        <Container>
-          {/* <div className={product.title} />
-          <Typography className={product.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>
-          { !product.line_items.length ? EmptyCart() : FilledCart() } */}
-        </Container>
+        <div>Cart product</div>
+        // <Container>
+        //   <div className={product.title} />
+        //   <Typography className={product.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>
+        //   { !product.line_items.length ? EmptyCart() : FilledCart() }
+        // </Container>
       );
     };
   
