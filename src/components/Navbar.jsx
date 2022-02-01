@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Cart from './Cart/Cart'
+import CartBtn from "./CartBtn";
+
 
 const Navbar = () => {
   return (
@@ -40,8 +43,10 @@ const Navbar = () => {
           </ul>
           <div className="buttons">
             <Link to="/cart" className="btn btn-outline-dark">
-              <i className="fa fa-shopping-cart me-1">Cart (0)</i>
+              <i className="fa fa-shopping-cart me-1"><CartBtn></CartBtn></i>
+
             </Link>
+            
           </div>
         </div>
       </div>

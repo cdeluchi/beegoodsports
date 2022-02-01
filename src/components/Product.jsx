@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
-// import { NavLink } from "react-router-dom";
-import CartBtn from "./CartBtn";
+import { useParams } from "react-router";   
 import Loading from "./Loading";
-
-// import { useDispatch } from "react-redux";
-// import { addItem, delItem } from '../redux/action/index';
+import { useDispatch } from "react-redux";
+import { addItem, delItem } from "../redux/action/index";
+import CartBtn from './CartBtn'
 
 const Product = () => {
   const { itemId } = useParams();
@@ -28,11 +26,16 @@ const Product = () => {
       getProduct();
     }, [itemId]);
    
+    // Redux use dispatch
+
+    const dispatch = useDispatch();
     
     const handleCart = (product) => {
       if (cartBtn === "Add to Cart"){
+        dispatch(addItem(product))
         setCartBtn("Remove from Cart")
       }else{
+        dispatch(delItem(product))
         setCartBtn("Add to Cart")
       }
     }

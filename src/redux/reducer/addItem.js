@@ -1,6 +1,7 @@
  const addItem = [];
 
  const addItems = (state = addItem, action) => {
+     console.log("addItem", action);
     switch (action.type) {
         case "ADDITEM": return[
             ...state, 
@@ -18,3 +19,4 @@
             break;
     }
  }
+ export default addItems;
