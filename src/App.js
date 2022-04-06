@@ -5,7 +5,7 @@ import Collection from "./components/Collection";
 import Product from "./components/Product";
 import Tags from "./components/Tags"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Cart from "./components/Cart/Cart";
+import Cart from "./components/Cart";
 
 
 function App() {

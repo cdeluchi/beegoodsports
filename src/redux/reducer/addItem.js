@@ -7,16 +7,16 @@
             ...state, 
             action.payload
         ]
-         break;
+        
         
         case "DELITEM":
             return state = state.filter((x) => {
-                return x.itemid !== action.payload.itemId
+                return x.itemId !== action.payload.itemId
             })
-            break;
+           
 
         default: return state; 
-            break;
+           
     }
  }
  export default addItems;

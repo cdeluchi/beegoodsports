@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Cart from './Cart/Cart'
+import Cart from './Cart'
 import CartBtn from "./CartBtn";
 
-
+// test new Cart!
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
       <div className="container">
         <Link className="navbar-brand fw-bold fs-4" to="/">
+        
           BeeGoodSport
         </Link>
         <button
